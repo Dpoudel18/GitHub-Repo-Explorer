@@ -1,14 +1,9 @@
 from bs4 import BeautifulSoup
 import requests
-from config import *
 import sys
 import re
 import datetime
-
-
 class Repo_rt:
-
-    __token = token_key
 
     def __init__(self, github_username, repo_name):
         self.github_username = github_username
@@ -22,8 +17,8 @@ class Repo_rt:
         if str(requests.get(self.url)) == '<Response [403]>':
             print('API request limit exceeded')
             sys.exit(0)
-        elif str(requests.get(self.url)) != '<Response [404]>': #,headers={"Authorization": self.__token}).json()
-            self.json_response  = requests.get(self.url).json() #,headers={"Authorization": self.__token}).json()
+        elif str(requests.get(self.url)) != '<Response [404]>': 
+            self.json_response  = requests.get(self.url).json() 
         else:
             print('Invalid username or repository name')
             sys.exit(0)
@@ -32,7 +27,7 @@ class Repo_rt:
         """
         Returns the url of the specified repository.
         """
-        return f"The url of the {self.repo_name} is: {self.url}"
+        return f"The url of the {self.repo_name} repository is: {self.url}"
 
     def get_num_of_open_issues(self):
         """

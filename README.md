@@ -1,11 +1,12 @@
 # Pandas Repo Explorer
+A project that uses Python, GitHub RESTful API, BeautifulSoup (a web scraping library), PostgreSQL(psycopg2) and ironically Pandas library to build a repository explorer that provide insights on [Pandas repository](https://github.com/pandas-dev/pandas). The code in this repository, however, could be used to explore any GitHub repository.
 
-
-
-# Schema Design
-
-![GitHub Repo Schema Design](schema_diagram/github_repo_schema_diagram.png)
-
+# Necessary installations for running the code
+```
+pip3 install plotly
+pip3 install psycopg2
+pip3 install beautifulsoup4
+```
 
 # Running the Code
 
@@ -36,12 +37,12 @@ in the **json_response** directory.
 
 ```python3 issues_and_pulls_json_to_csv.py```
 
-This will generate the following files
+This will generate the following .csv files
 ```
-issues.csv
-pulls.csv
 commits.csv
 contributors.csv
+issues.csv
+pulls.csv
 ```
 in the **csv_files** directory.
 
@@ -63,6 +64,39 @@ pulls
 issues_label
 pulls_label
 ```
+Check out below to learn more about the schema design and the columns in each of those tables.
+
+# Repository Schema Design
+
+All the table names and column names in the designed schema are pretty much self-explainatory. The relations between tables are shown with an arrow. 
+
+![GitHub Repo Schema Design](schema_diagram/github_repo_schema_diagram_final.png)
+
+
+# Schema test with the sample questions given in the assignment file
+
+The following Jupyter Notebook file demonstrates that the above schema design could find answers to the sample SQL questions provided in the assignment file.
+
+```eda_script/sample_sql_questions_test.ipynb```
+
+# Exploratory Data Analysis
+
+The following Jupyter Notebook file performs exploratory data analysis on the Pandas repository with the collected data.
+
+```eda_script/pandas_analysis.ipynb```
+
+# Repository Overview
+
+The following script implements a class that fetches the basic overview of the repo like number of stars, number of forks from the repository home page with a single API call.
+
+```repo_overview_script/repo_overview.py```
+
+# Activity Report
+
+The following file is an activity report that breifly summarizes the findings and insights on Pandas repository.
+
+```report/pandas_activity_report.pdf```
+
 
 
 
