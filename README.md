@@ -25,6 +25,8 @@ in the **json_response** directory.
 
 *Note*: https://api.github.com/repos/{username}/{repo_name}/issues  fetches both issues and pull requests so I didn't call *pulls* endpoint. Instead, I seperated them later during data pre-processing step.
 
+Also note: I haven't included issues_and_pulls.json and commits.json file in the repo because of large file size.
+
 ### **Step 2:**  Data pre-processing and file conversion from JSON to CSV.
 
 ``` cd json_to_csv_script/ ```
@@ -43,6 +45,7 @@ commits.csv
 contributors.csv
 issues.csv
 pulls.csv
+milestone.csv
 ```
 in the **csv_files** directory.
 
