@@ -6,4 +6,4 @@ CREATE TABLE pulls_label (
     label_name varchar(30)
 );
 
-\copy issues_label(label_id, pulls_number, label_name) FROM 'unit21/pulls_label.csv' DELIMITER ',' CSV HEADER;
+\copy pulls_label(label_id, pulls_number, label_name) FROM 'unit21/pulls_label.csv' DELIMITER ',' CSV HEADER;

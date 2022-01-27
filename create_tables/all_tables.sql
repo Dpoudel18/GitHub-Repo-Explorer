@@ -1,12 +1,3 @@
-DROP TABLE if exists commits cascade;
-DROP TABLE if exists contributors cascade;
-DROP TABLE if exists issues cascade;
-DROP TABLE if exists pulls cascade;
-DROP TABLE if exists milestones cascade;
-DROP TABLE if exists issues_label cascade;
-DROP TABLE if exists pulls_label cascade;
-
-
 CREATE TABLE contributors (
     id int primary key,
     login varchar(25),
@@ -73,5 +64,13 @@ CREATE TABLE pulls_label (
     label_id bigint primary key,
     pulls_number bigint,
     label_name varchar(30),
-    FOREIGN KEY (pulls_number) REFERENCES pulls(number)
+    FOREIGN KEY (pulls_number) REFERENCES pull_request(number)
 );
+
+\copy commits(sha, author_id, committer_id, message_label, parents_sha, commit_date) FROM 'csv_files/commits.csv' DELIMITER ',' CSV HEADER;
+\copy pulls(number, user_id, created_at, updated_at, closed_at, state, merged_at) FROM 'csv_files/pulls.csv' DELIMITER ',' CSV HEADER;
+\copy contributors(id, login, contributions) FROM 'csv_files/contributors.csv' DELIMITER ',' CSV HEADER;
+\copy issues(number, user_id, created_at, updated_at, closed_at, milestone_number, state) FROM 'csv_files/issues.csv' DELIMITER ',' CSV HEADER;
+\copy issues_label(label_id, issue_number, label_name) FROM 'csv_files/issues_label.csv' DELIMITER ',' CSV HEADER;
+\copy milestones(number, title, creator, created_at, updated_at, due_on, closed_at, open_issues, closed_issues, state) FROM 'csv_files/milestones.csv' DELIMITER ',' CSV HEADER;
+\copy pulls_label(label_id, pulls_number, label_name) FROM 'csv_files/pulls_label.csv' DELIMITER ',' CSV HEADER;
