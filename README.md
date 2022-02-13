@@ -76,9 +76,9 @@ All the table names and column names in the designed schema are pretty much self
 ![GitHub Repo Schema Design](schema_diagram/github_repo_schema_diagram_final.png)
 
 
-# Schema test with the sample questions given in the assignment file
+# Schema test with the SQL Exploration
 
-The following Jupyter Notebook file demonstrates that the above schema design could find answers to the sample SQL questions provided in the assignment file.
+The following Jupyter Notebook file demonstrates that the above schema design could find answers to interesting repository insights with SQL queries.
 
 ```eda_script/sample_sql_questions_test.ipynb```
 
