@@ -1,4 +1,4 @@
-# Pandas Repo Explorer
+# GitHub Repo Explorer
 A project that uses Python, GitHub RESTful API, BeautifulSoup (a web scraping library), PostgreSQL(psycopg2) and ironically Pandas library to build a repository explorer that provide insights on [Pandas repository](https://github.com/pandas-dev/pandas). The code in this repository, however, could be used to explore any GitHub repository.
 
 # Necessary installations for running the code
